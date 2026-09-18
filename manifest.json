@@ -1,12 +1,18 @@
 {
     "manifest_version": 3,
-    "name": "Hello World",
-    "version": "1.0",
-    "description": "Popup 'Hello World!'.",
-    "action": {
-        "default_popup": "popup.html"
-    },
-    "permissions": [
-        "storage"
+    "name": "YouTube Document PiP",
+    "version": "1.0.0",
+    "description": "YouTubeのプレーヤーごとPiPウィンドウに表示し、広告のスキップボタンをPiP上で押せるようにします",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.youtube.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "world": "MAIN",
+            "run_at": "document_idle"
+        }
     ]
 }
